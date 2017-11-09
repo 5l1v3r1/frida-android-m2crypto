@@ -19471,7 +19471,7 @@ fail:
   return NULL;
 }
 
-
+#ifndef OPENSSL_NO_SSL3
 SWIGINTERN PyObject *_wrap_sslv3_method(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   SSL_METHOD *result = 0 ;
@@ -19482,6 +19482,7 @@ SWIGINTERN PyObject *_wrap_sslv3_method(PyObject *self, PyObject *args) {
 fail:
   return NULL;
 }
+#endif
 
 
 SWIGINTERN PyObject *_wrap_tlsv1_method(PyObject *self, PyObject *args) {
@@ -29511,7 +29512,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ssl_read", _wrap_ssl_read, METH_VARARGS, NULL},
 	 { (char *)"ssl_write", _wrap_ssl_write, METH_VARARGS, NULL},
 	 { (char *)"ssl_init", _wrap_ssl_init, METH_VARARGS, NULL},
+#ifndef OPENSSL_NO_SSL3
 	 { (char *)"sslv3_method", _wrap_sslv3_method, METH_VARARGS, NULL},
+#endif
 	 { (char *)"tlsv1_method", _wrap_tlsv1_method, METH_VARARGS, NULL},
 	 { (char *)"ssl_ctx_passphrase_callback", _wrap_ssl_ctx_passphrase_callback, METH_VARARGS, NULL},
 	 { (char *)"ssl_ctx_use_x509", _wrap_ssl_ctx_use_x509, METH_VARARGS, NULL},
